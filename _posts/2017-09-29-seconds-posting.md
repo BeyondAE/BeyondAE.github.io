@@ -1,5 +1,5 @@
 ---
-Title : this is Sample posting
+title : this is Sample posting
 description: 간단한 포스팅 시작글 입니다.
 categories:
  - private
