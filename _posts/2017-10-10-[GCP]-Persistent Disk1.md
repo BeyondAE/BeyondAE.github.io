@@ -15,7 +15,7 @@ VM 인스턴스를 생성하고 persistent disk를 연결해 본다.
 ---
 ## Try
 먼저 GCP 홈에서 **Cloud Shell** 을 실행합니다.
-![]()
+![](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10-10/%EC%BA%A1%EC%B2%98_2017_10_10_16_15_25_659.png?raw=true)
 
 가상 머신이 로드되면 5GB의 영구 disk가 할당돼 있습니다.(기본)
 
