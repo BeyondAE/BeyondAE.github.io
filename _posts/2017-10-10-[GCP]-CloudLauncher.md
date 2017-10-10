@@ -1,5 +1,5 @@
 ---
-title : [GCP] Cloud Launcher
+title : GCP, Cloud Launcher
 description: Provision Services with Cloud Launcher
 categories:
  - GCP
