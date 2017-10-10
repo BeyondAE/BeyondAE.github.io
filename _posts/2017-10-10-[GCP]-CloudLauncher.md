@@ -1,5 +1,5 @@
 ---
-title : this is Sample posting
+title : [GCP] Cloud Launcher
 description: Provision Services with Cloud Launcher
 categories:
  - GCP
