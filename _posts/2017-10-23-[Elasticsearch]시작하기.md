@@ -65,3 +65,40 @@ sudo /bin/systemctl enable elasticsearch.service
 sudo systemctl start elasticsearch.service
 sudo systemctl stop elasticsearch.service
 ```
+
+## 프로세스 확인하기
+```sh
+bin/elasticsearch -d
+// 또는
+ps -ef | grep elasticsearch
+```
+
+## Start/Stop 스크립트 만들기
+```sh
+echo 'bin/elasticsearch -d -p es.pid' > start.sh
+
+echo 'kill `cat es.pid`' > stop.sh
+
+chmod 755 start.sh stop.sh
+```
+
+# 구조
+
+## vs RDB
+기존 관계형 DB와 비교하면 다음과 같은 구성을 가집니다.
+| Elasticsearch | Relational DB |
+| --- | --- |
+| Indext | Database |
+| Type | Table |
+| Document | Row |
+| Field | Column |
+| Mapping | Schema |
+
+## 함수
+사용 가능한 함수는 CRUD와 동일하다.
+| Elasticsearch | Relational DB | CRUD |
+| --- | --- | --- |
+| GET | SELECT | READ |
+| PUT | UPDATE | UPDATE |
+| POST | INSERT | CREATE |
+| DELETE | DELETE | DELETE |

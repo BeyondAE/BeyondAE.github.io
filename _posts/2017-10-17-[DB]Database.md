@@ -9,29 +9,15 @@ tags :
 
 ---
 
-### Distinct
+# 일반
+
+## Distinct
 중복 제외
 SELECT DISTINCT Country FROM Customers;
 
-### Count
+## Count
 갯수 확보
 SELECT COUNT(DISTINCT Country) FROM Customers;
-
-## Where
-SELECT * FROM Customers
-WHERE Country='Mexico';
-
-### Where A AND B
-SELECT * FROM Customers
-WHERE Country='Germany' AND City='Berlin';
-
-### Where A AND (B OR C)
-SELECT * FROM Customers
-WHERE Country='Germany' AND (City='Berlin' OR City='München');
-
-### Where AND NOT
-SELECT * FROM Customers
-WHERE NOT Country='Germany' AND NOT Country='USA';
 
 ## Order by
 SELECT * FROM Customers
@@ -83,7 +69,22 @@ FROM Products;
 - AVG(price) : price컬럼들의 평균 값
 - SUM
 
+
 # Where
+SELECT * FROM Customers
+WHERE Country='Mexico';
+
+### Where A AND B
+SELECT * FROM Customers
+WHERE Country='Germany' AND City='Berlin';
+
+### Where A AND (B OR C)
+SELECT * FROM Customers
+WHERE Country='Germany' AND (City='Berlin' OR City='München');
+
+### Where AND NOT
+SELECT * FROM Customers
+WHERE NOT Country='Germany' AND NOT Country='USA';
 
 ## Where A LIKE
 SELECT * FROM Customers
@@ -123,6 +124,7 @@ SELECT * FROM Products
 WHERE (Price BETWEEN 10 AND 20)
 AND NOT CategoryID IN (1,2,3);
 
+# 일반2
 
 ## 출력 컬럼 연결
 SELECT CustomerName, Address + ', ' + PostalCode + ' ' + City + ', ' + Country AS Address
@@ -220,6 +222,9 @@ GROUP BY Country
 HAVING COUNT(CustomerID) > 5
 ORDER BY COUNT(CustomerID) DESC;
 - customerID의 개수가 5개 이상인
+
+
+# 일반3
 
 ## EXISTS
 SELECT SupplierName
