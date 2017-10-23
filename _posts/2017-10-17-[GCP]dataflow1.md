@@ -9,13 +9,13 @@ tags :
 - Dataflow
 ---
 
-##시작
+## 시작
  실시간 스트리밍 관련 도구들 분류 정리
 
-##Stream이란?
+## Stream이란?
 정리,
 
-###특징
+### 특징
 1. Low-latency
 2. Approximate
 3. Speculative

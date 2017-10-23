@@ -17,7 +17,7 @@ SSD 구매를 앞두고 뭘 알아야하나 라는 생각에 이것 저것 보�
 CrystalDiskMark
 ```
 
-##구성
+## 구성
 
 무엇보다 간단한 UI와 필요한 속도 측정이 주를 이루는듯 합니다.
 
@@ -45,5 +45,5 @@ CrystalDiskMark
 
 출처: http://pastimelife.com/1248 [잡다한 세상]
 
-#후기
+# 후기
 아직입니다.
