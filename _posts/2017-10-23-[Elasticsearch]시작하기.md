@@ -86,19 +86,19 @@ chmod 755 start.sh stop.sh
 
 ## vs RDB
 기존 관계형 DB와 비교하면 다음과 같은 구성을 가집니다.
-| Elasticsearch | Relational DB |
-| --- | --- |
-| Indext | Database |
-| Type | Table |
-| Document | Row |
-| Field | Column |
-| Mapping | Schema |
+Elasticsearch | Relational DB
+--- | ---
+Indext | Database
+Type | Table
+Document | Row
+Field | Column
+Mapping | Schema
 
 ## 함수
 사용 가능한 함수는 CRUD와 동일하다.
-| Elasticsearch | Relational DB | CRUD |
-| --- | --- | --- |
-| GET | SELECT | READ |
-| PUT | UPDATE | UPDATE |
-| POST | INSERT | CREATE |
-| DELETE | DELETE | DELETE |
+Elasticsearch | Relational DB | CRUD
+--- | --- | ---
+GET | SELECT | READ
+PUT | UPDATE | UPDATE
+POST | INSERT | CREATE
+DELETE | DELETE | DELETE
