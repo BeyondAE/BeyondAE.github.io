@@ -1,5 +1,5 @@
 ---
-title : [2]GCP 시작하기
+title : GCP 시작하기
 description : CP100, GCP시작
 date : 2017-10-25
 categories :
@@ -68,6 +68,6 @@ Cloud IAM을 통해 제공되는 역할을 2가지 종류가 있다.
 > - 조직적인 역할 : 이건 새로 추가된 IAM 역할인데 좀 더 섬세한 접근을 다룰 수 있게 한다. 다른 섹션에서 좀 더 다루기로 한다.
 
 멤버에게 역할을 주기 위해 관리자 콘솔을 사용하면 된다.
-Owner가 멤버를 추가할 시엔 email 주소(gmail)를 사용해 추가하면 되고, 멤버는 초대에 수락하기만 하면 된다. 
+Owner가 멤버를 추가할 시엔 email 주소(gmail)를 사용해 추가하면 되고, 멤버는 초대에 수락하기만 하면 된다.
 
 # Interacting with GCP
