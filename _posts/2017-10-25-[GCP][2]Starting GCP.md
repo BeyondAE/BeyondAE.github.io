@@ -45,14 +45,14 @@ GCP는 구조적인 리소스 컨테이너와 프로젝트를 제공한다. 이�
 
 ## IAM
 IAM의 구조는 다음과 같다.
-![IAM]()
+![IAM](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/IAM-2-1.png?raw=true)
 'can do what'에 대한 부분은 IAM의 역할을 명시하는 부분이다. 이 역할은 간단하게 권한들의 묶음이다. 예를 들어 프로젝트의 인스턴스의 생성, 삭제, 시작, 중지 등의 행위를 위해서 역할을 명시해야 하며 이에 맞게 하나 이상의 권한을 줘야한다.
 
 'who'는 누구에게 역할을 수행가능하게 할 것이가를 명시하는 부분이다.
 
 ## IAM 선언전의 기본 역할 구조
 기본적인 역할 구조는 다음과 같다.
-![Role]()
+![Role](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/role2-2.png?raw=true)
 
 각자를 구분해서 설명하자면
 > - Owner : 프로젝트에 멤버 추가 및 프로젝트 삭제 등의 강력한 권한을 가진 최고 관리자. Editor를 추가할 수 있다.
