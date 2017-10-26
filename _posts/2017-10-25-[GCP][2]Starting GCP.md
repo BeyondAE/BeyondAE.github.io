@@ -72,11 +72,11 @@ Owner가 멤버를 추가할 시엔 email 주소(gmail)를 사용해 추가하�
 
 ## Curated roles
 조직적인 역할(Curated role)은 그룹단위로 면밀하게 권한을 주는 것이다. Google Group으로 관리되는 멤버들에게 권한 묶음을 건네주고 프로젝트를 관리할 수 있게 하는 것인데, 이것은 **기본적인 역할** 의 구조를 탈피해 전략적으로 역할을 부여할 수 있게 한다.
-![curated role]()
+![curated role](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/cp100-2-3.png?raw=true)
 
 ## IAM 리소스 계층
 계층에 대한 예시는 다음과 같다.
-![hierachy]()
+![hierachy](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/cp100-2-4.png?raw=true)
 Cloud Platform의 리소스는 계층적으로 조직화할 수 있다. 위의 세 단계로 조직화가 가능한데 각각에 대한 설명은 다음과 같다.
 > - Organization : 회사/조직을 대표하는 level이다. 이곳에서 결정된 역할은 하위로 계승되게 된다.
 > - Project : 상속받는 역할을 프로젝트 단위로 신뢰 경계를 결정하는 것을 대표한다. 프로젝트 내 하위 리소스들에 대한 범위를 잘 생각하고 결정해야 한다. 예를 들어 App Engine이 storage buckets에 접근 가능하게 말이다. 여기서 결정된 역할은 하위로 계승될 것이다.
