@@ -41,7 +41,7 @@ document.getElementById("demo").innerHTML = "My First JavaScript";
 
 <head> 안의 사용 예는 다음과 같다.
 
-```JavaScript
+{% highlight ruby linenos %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +60,8 @@ function myFunction() {
 
 </body>
 </html>
-```
+{% endhighlight %}
+
 - Try it 버튼을 누르면 myFunction()이 수행되며 **demo** 란 컨텐츠 id를 가진 것의 값을 바꿔준다.
 
 위와 같은 방법으로 <body> 역시 구성이 가능하다.
@@ -75,7 +76,8 @@ function myFunction() {
 ```
 
 다음과 같은 호출을 통해 script를 사용할 수 있다.
-```JavaScript
+{% highlight ruby linenos %}
+
 <!DOCTYPE html>
 <html>
 <body>
@@ -87,7 +89,8 @@ function myFunction() {
 
 </body>
 </html>
-```
+{% endhighlight %}
+
 좋다, 다 좋은데 알아둬야할 사항이 있다. 바로 src의 경로!
 - 외부에서 js파일을 불러올 수도 있다! omg
 - 특정 폴더를 기준으로 찾아야할 수도 있다.
