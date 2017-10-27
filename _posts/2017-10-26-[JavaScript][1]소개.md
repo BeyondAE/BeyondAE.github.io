@@ -42,7 +42,7 @@ document.getElementById("demo").innerHTML = "My First JavaScript";
 <head> 안의 사용 예는 다음과 같다.
 
 {% highlight ruby linenos %}
-<!DOCTYPE html>
+//<!DOCTYPE html>
 <html>
 <head>
 <script>
@@ -77,8 +77,7 @@ function myFunction() {
 
 다음과 같은 호출을 통해 script를 사용할 수 있다.
 {% highlight ruby linenos %}
-
-<!DOCTYPE html>
+//<!DOCTYPE html>
 <html>
 <body>
 <p id="demo">A Paragraph.</p>
