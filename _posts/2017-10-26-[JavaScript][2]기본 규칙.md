@@ -132,6 +132,7 @@ document.getElementById("demo").innerHTML =
 JavaScript는 한 라인에 80개의 문자가 있는 것을 피하라고 해요. 보기가 너무 힘들 거든요. 그래서 필요하다면 위와 같이 라인을 내릴 수도 있습니다.
 
 # Keyword
+
 | Keyword |	Description |
 |--- | ---|
 | break |	Terminates a switch or a loop |
