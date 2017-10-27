@@ -132,18 +132,18 @@ document.getElementById("demo").innerHTML =
 JavaScript는 한 라인에 80개의 문자가 있는 것을 피하라고 해요. 보기가 너무 힘들 거든요. 그래서 필요하다면 위와 같이 라인을 내릴 수도 있습니다.
 
 # Keyword
-|Keyword |	Description|
+| Keyword |	Description |
 |--- | ---|
-|break |	Terminates a switch or a loop|
-|continue | Jumps out of a loop and starts at the top|
-|debugger	| Stops the execution of JavaScript, and calls (if available) the debugging function|
-|do ... while |	Executes a block of statements, and repeats the block, while a condition is true|
-|for |	Marks a block of statements to be executed, as long as a condition is true|
-|function |	Declares a function|
-|if ... else |	Marks a block of statements to be executed, depending on a condition|
-|return |	Exits a function|
-|switch |	Marks a block of statements to be executed, depending on different cases|
-|try ... catch |	Implements error handling to a block of statements|
+| break |	Terminates a switch or a loop |
+| continue | Jumps out of a loop and starts at the top |
+| debugger	| Stops the execution of JavaScript, and calls (if available) the debugging function |
+| do ... while |	Executes a block of statements, and repeats the block, while a condition is true |
+| for |	Marks a block of statements to be executed, as long as a condition is true |
+| function |	Declares a function |
+| if ... else |	Marks a block of statements to be executed, depending on a condition |
+| return |	Exits a function |
+| switch |	Marks a block of statements to be executed, depending on different cases |
+| try ... catch |	Implements error handling to a block of statements |
 | var |	Declares a variable |
 
 # 주석
