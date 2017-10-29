@@ -26,7 +26,7 @@ tags :
 
 ### IaaS와 PaaS
 GCP에서 IaaS와 PaaS에 대한 구분은 다음과 같습니다.
-![IaaS and PaaS]()
+![IaaS and PaaS](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/IaaS와%20PaaS.png?raw=true)
 
 #### IaaS
 낮은 레벨의 컴퓨팅 HW를 구성하는 것을 말합니다.
@@ -53,7 +53,7 @@ Java, Python, PHP, Go 언어의 특정 버전을 지원합니다.
 ### Web application 작업 흐름
 정확하게 어떤 흐름으로 사용되는지 알아보도록 하죠.
 
-![workflow]()
+![workflow](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/workflow.png?raw=true)
 1. 개발 및 테스트를 진행합니다.
 2. SDK를 통해 앱 엔진으로 배포합니다.
 3. 앱 엔진은 알아서 스케일을 조정합니다.
@@ -88,6 +88,6 @@ Java, Python, PHP, Go 언어의 특정 버전을 지원합니다.
 인프라에 대한 커스텀 역시 가능합니다.
 
 표준과 유동적인 환경의 차이를 보죠.
-![vs]()
+![vs](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/vs.png?raw=true)
 
 ## Google Cloud Endpoints

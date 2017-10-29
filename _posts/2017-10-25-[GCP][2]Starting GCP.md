@@ -89,6 +89,7 @@ Organization은 Root node 입니다. GCP API를 사용할 수 있죠.
 정확하게는 G Suite를 사용해 프로젝트를 생성하고 자동ㅇ트로 Organization node를 부여하는 것이죠.( G Suite에 대한 설명은 다른 page에서 정리합니다. )
 G suite 계정이 없다면 회사에 대한 Organization node를 만들 때 [이곳](https://cloud.google.com/contact/)에서 신청하라는 군요!
 이 Organization role은 2가지로 나뉘는 데요 바로 **Organization admin** 과 **Project Creater** 입니다.
+![](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/organization%20node.png?raw=true)
 Organization admin은 가시성과 회사의 모든 리소스에 대한 전반적인 관리를 수행합니당.
 Project Creater는 프로젝트를 생성하고 또 누가 프로젝트를 생성할 수 있는지를 제한할 수 있습니다.
 
@@ -106,7 +107,7 @@ Service account는 Google Cloud API들에 대한 접근과 프로젝트 내의 �
 
 # Interacting with GCP
  GCP와의 상호작용읉 위한 방법은 아래의 그림을 보세요.
- ![inter]()
+ ![inter](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/interating%20with%20gcp.png?raw=true)
 
 ## GCP Console
  모든 프로젝트 데이터에 대한 중심이 되는 콘솔입니다.
