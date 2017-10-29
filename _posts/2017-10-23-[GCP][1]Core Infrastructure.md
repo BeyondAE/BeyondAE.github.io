@@ -6,7 +6,7 @@ categories :
 - GCP
 tags :
 - GCP
-- Qwicklab
+- Qwiklab
 ---
 
 > CP100 정리, Qwicklab 강의 자료 기반으로 제작됐으며, 무단 배포를 금합니다.

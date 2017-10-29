@@ -1,12 +1,12 @@
 ---
-title : GCP 시작하기
+title : [2]GCP 시작하기
 description : CP100 GCP시작
 date : 2017-10-25
 categories :
 - GCP
 tags :
 - GCP
-- Qwicklab
+- Qwiklab
 ---
 
 > CP100 정리, Qwicklab 강의 자료 기반으로 제작됐으며, 무단 배포를 금합니다.
@@ -82,6 +82,61 @@ Cloud Platform의 리소스는 계층적으로 조직화할 수 있다. 위의 �
 > - Project : 상속받는 역할을 프로젝트 단위로 신뢰 경계를 결정하는 것을 대표한다. 프로젝트 내 하위 리소스들에 대한 범위를 잘 생각하고 결정해야 한다. 예를 들어 App Engine이 storage buckets에 접근 가능하게 말이다. 여기서 결정된 역할은 하위로 계승될 것이다.
 > - Resource : 각 리소스에 대한 정책을 설정한다. 당연하게도 리소스 level에서 결정된 정책은 상위 보다 강력하기 떄문에 리소스 사용 시 여기서 결정된 정책을 따르게 된다.
 
+## Organization node
+Organization은 Root node 입니다. GCP API를 사용할 수 있죠.
+
+많은 수의 프로젝트는 관리하기가 굉장히 힘듭니다. 그래서 Organization node 컨셉이 필요합니다!
+정확하게는 G Suite를 사용해 프로젝트를 생성하고 자동ㅇ트로 Organization node를 부여하는 것이죠.( G Suite에 대한 설명은 다른 page에서 정리합니다. )
+G suite 계정이 없다면 회사에 대한 Organization node를 만들 때 [이곳](https://cloud.google.com/contact/)에서 신청하라는 군요!
+이 Organization role은 2가지로 나뉘는 데요 바로 **Organization admin** 과 **Project Creater** 입니다.
+Organization admin은 가시성과 회사의 모든 리소스에 대한 전반적인 관리를 수행합니당.
+Project Creater는 프로젝트를 생성하고 또 누가 프로젝트를 생성할 수 있는지를 제한할 수 있습니다.
+
+## Service Account
+Service account는 Google Cloud API들에 대한 접근과 프로젝트 내의 프로그램을 사용하기 위한 id를 말 합니다. 쉽게 생각하면 리눅스 내에 올린 데몬에 대한 계정과 비슷합니다.
+형식은 다음과 같습니다.
+> - PROJECT_NUMBER@developer.gserviceaccount.com
+> - PROJECT_ID@developer.gserviceaccount.com
+
+## Service Account와 IAM
+인증을 위해선 사용자명과 비밀번호가 필요하죠. Apps는 Key를 사용합니다. 하나 혹은 그 이상의 Key는 각각의 IAM service account를 만들 수 있습니다. key는 리소스에 접근하는 것이기에 조심히 다뤄져야 겠죠? Compute Engine에서 프로그램이 실행될 때, 구글은 key들을 관리합니다. 덕분에 key를 분신하거나 공개하는 일은 없는 거죠.
+
+위에서 봤듯이 Service Account는 리소스와 id가 같습니다. 그래서 id를 통해 프로그램에 대한 인증을 하죠. 예를들어 Compute Engine VM이 Service Account로 동작 중이고 VM에 필요한 리소스에 대한 접근 권한을 부여하려면 IAM 역할을 서비스 계정에 부여해야 합니다. 동시에 누가 VM을 만들 수 있는지 결정도 해야하죠.
 
 
 # Interacting with GCP
+ GCP와의 상호작용읉 위한 방법은 아래의 그림을 보세요.
+ ![inter]()
+
+## GCP Console
+ 모든 프로젝트 데이터에 대한 중심이 되는 콘솔입니다.
+다음과 같은 툴로 접근이 가능합니다.
+> - Cloud Source Repositories
+> - Cloud Shell
+> -  Test Lab(Mobile app testing)
+
+Cloud Source Repositories는 git을 지원합니다. 어떤 프로그램이나 서비스에 대한 개발 협업을 지원하는 것이죠. 운영중인 App Engine이나 Compute Engine에서도 포함이 가능합니다. 좋네요. 또 브라우저 상에서 source에 대한 수정을 지원합니다.
+
+Cloud Shell은 별다른 설치 없이 브라우저에서 리소스에 대한 접근을 도와 줍니다. 이걸로 사용자는 번거로운 없이 접속만으로 기본적인 도구들(GCP SDK 등)을 사용할 수 있어요!
+
+## Cloud SDK
+SDK는 CLI 툴들을 보유하고 있어요. gcloud, gsutil, bq 등이 대표적인 예죠.
+자세한 사항은 [이곳](https://cloud.google.com/sdk/cloudplatform
+)을 참고하세요
+
+## RESTful APIs
+제품과 서비스에 프로그래밍적으로 접근이 가능한 방법이 되겠네요.
+> -  JSON을 교환 포맷으로 사용하구요. OAuth2.0을 사용합니다.
+> - Google Cloud Platform Console을 통해 허용이 가능합니다.
+> - [여기](https://developers.google.com/apis-explorer/#p/)에서 구글이 제공하는 rest api를 확인해 보세요.
+
+## Cloud Console Mobile App
+> - VM과 DB 인스턴스를 관리할 수 있어요.
+> - App Engine 관리가 됩니다.
+> - 결제도 관리가 되네요.
+> - 프로젝트에 대한 커스텀 대쉬보드를 볼 수 있네요.
+
+## APIs Explorer
+[API Explorer](https://developers.google.com/apis-explorer/#p/)는 브라우저에서 쉽게 도구들을 쓸 수 있게 지원합니다.
+
+만약 Private data에 접근을 해야하는 api라면 인증이 필요합니다. 하지만 대부분의 api들이 public data에 대한 접근을 지원합니다.
