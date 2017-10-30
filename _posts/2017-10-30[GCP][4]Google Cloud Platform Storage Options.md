@@ -15,7 +15,7 @@ tags :
 
 # Google Cloud Storage
 구글의 영구적이고 고사양의 Storage 서비스 입니다.
-![Cloud Storage1]()
+![Cloud Storage1](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/Cloud%20Storage.png?raw=true)
 > - 고성능의 BLOB Storage
 > -  간단한 관리
 > - 데이터 암호화
@@ -23,7 +23,7 @@ tags :
 
 ## 4가지 클래스
 그냥 저장소 타입이 4가지란 말이다. 자료 저장소가 다 똑같이 뭐가 4개씩이나 있나? 구글에선 다음과 같이 분류 한다.
-![4가지]()
+![4가지](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/4Classes.png?raw=true)
 위 모두는 한 달에 저장된 data의 GB 마다 비용이 지불되며, Coldline 쪽으로 갈 수록 접근 빈도가 낮은 data로 구성하면 된다.
 위 지표의 SLA는 개념이 약간 햇갈리는데, 지표가 말하는 것은, 한달을 만 시간이라 했을 때 5시간이 접근되는 비율을 말한 다고 한다. 자주 접근되는 또는 그렇지 않은 데이터에 대한 구분을 지원하기 위한 지표로 사용된다.
 
@@ -75,7 +75,7 @@ Cloud Storage는 빈번하게 장기 저장소로 사용되는 저장공간입�
   그리고 BigTable은 Application API나 Streaming, Batch 등을 통해 data 접근을 할 수 있습니다.
 
 ## Integration
-![BigTable Integration]()
+![BigTable Integration](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/BigTable%20Integration.png?raw=true)
 > - dataflow를 사용해 piplines을 구성가능 하다.
 > - dataproc를 통해 Hadoop Jobs와도 통합이 가능하다.
 > - On-prem 혹은 cloud 기반 hadaoop과도 통합이 가능하다.
@@ -89,7 +89,7 @@ MySQL과 PostgreSQL을 서비스로 지원하며 자동복제, 백업 관리, �
 [vertical and horizontal](http://blog.naver.com/wja30/100124946505)
 [Scale up/out](https://m.blog.naver.com/PostView.nhn?blogId=islove8587&logNo=220548900044&proxyReferer=https%3A%2F%2Fwww.google.co.kr%2F)
 ## Integration
-![integration]()
+![integration](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/Cloud%20SQL%20Integration.png?raw=true)
 > - 앱엔진과 연동
 > - Compute Engine 인스턴스 인증 사용(외부 IP만 가능)
 > - 외부 어플리케이션과 연동
@@ -108,7 +108,7 @@ Cloud Spanner는 horizontal-scalable이고 강력하게 일련된 관계형 data
 ## Comparing Storage Options
 Storage 서비스가 분류돼 있으니 뭘 선택해야하는지 고민이군요.
 구분을 위한 상세한 표를 준비했습니다.
-![comparing details]()
+![comparing details](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/comparing%20details.png?raw=true)
 > - BigTable은 관계형 db가 아닙니다. 1TB 이하의 작은양에는 사용하지 마세요.
 > - online transaction processing(OLTP) 시스템을 제공해야 한다면, Cloud SQL과 Spanner를 고려하세요. 특히 Spanner는 2TB이상의 db에 적합합니다.
 > - online analytical processing(OLAP)이라면 당연히 BigQuery
