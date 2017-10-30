@@ -91,3 +91,10 @@ Java, Python, PHP, Go 언어의 특정 버전을 지원합니다.
 ![vs](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-10/vs.png?raw=true)
 
 ## Google Cloud Endpoints
+API 관리 도구이다. Distributed API management와 Supported platforms로 나뉜다.
+
+### Distributed API management
+제공된 API 관리 시스템이다. API 콘솔, 호스팅, 로깅, 모니터링, 생성, 공유, 유지보수, 보안에 대한 API들을 제공한다.
+
+### supported platforms
+앱 엔진, 유동적인 환경, 컴퓨트 엔진, 컴테이너 엔진 등을 지원하기 위한 방법을 말한다.
