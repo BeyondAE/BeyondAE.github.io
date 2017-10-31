@@ -1,5 +1,5 @@
 ---
-title : 5. Google Container Engine
+title : Google Container Engine
 description : Google Container Engine
 date : 2017-10-30
 categories :

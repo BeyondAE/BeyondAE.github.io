@@ -1,5 +1,5 @@
 ---
-title : 3. GCP App engine and datastore
+title : GCP App engine and datastore
 description : Google App engine and Cloud Datastore
 date : 2017-10-30
 categories :

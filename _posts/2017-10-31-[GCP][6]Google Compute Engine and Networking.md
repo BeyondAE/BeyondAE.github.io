@@ -1,5 +1,5 @@
 ---
-title : 6. Google Compute Engine and Networking
+title : Google Compute Engine and Networking
 description : Google Compute Engine and Networking
 date : 2017-10-31
 categories :

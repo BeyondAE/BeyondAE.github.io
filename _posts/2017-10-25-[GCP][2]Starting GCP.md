@@ -1,5 +1,5 @@
 ---
-title : 2. GCP 시작하기
+title : Starting GCP
 description : GCP시작
 date : 2017-10-25
 categories :
