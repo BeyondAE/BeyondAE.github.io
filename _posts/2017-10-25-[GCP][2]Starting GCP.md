@@ -1,6 +1,6 @@
 ---
-title : [2]GCP 시작하기
-description : CP100 GCP시작
+title : 2. GCP 시작하기
+description : GCP시작
 date : 2017-10-25
 categories :
 - GCP

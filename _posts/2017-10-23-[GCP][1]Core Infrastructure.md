@@ -1,5 +1,5 @@
 ---
-title : Intruducing Google Cloud Platform
+title : 1. Intruducing Google Cloud Platform
 description : CP100 인프라 기본 정보
 date : 2017-10-23
 categories :

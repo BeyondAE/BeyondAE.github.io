@@ -1,5 +1,5 @@
 ---
-title : [4]Google Cloud Platform Storage Options
+title :  4. Google Cloud Platform Storage Options
 description : Google Cloud Platform Storage Options
 date : 2017-10-30
 categories :
