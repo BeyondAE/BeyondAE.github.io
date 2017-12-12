@@ -13,7 +13,7 @@ tags :
 > 앱 개발에 필요한 도구와 인프라를 제공하기 위해서 구글에서 만든 클라우드 플랫폼
 
 ## 쓰면 어떻게 되나?
-![fb쓰면]()
+![fb쓰면](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb쓰면.png?raw=true)
 엄청난 비용이 필요한 부분을 뚝딱 해결할 수 있게 한다.
 그림에서 보듯이 클라이언트가 모든 것을 해버린다.
 
@@ -22,7 +22,7 @@ tags :
 > https://console.firebase.google.com
 
 구성된 도구들은 대충 이렇다.
-![fb도구들]()
+![fb도구들](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb도구들.png?raw=true)
 개발과 그로쓰해킹, 수입에 대해서 크게 나눠 구분이 가능하다.
 > - Growth hacking : 개발적인 면에서 고민하고, 상품/서비스의 개선사항을 모니터링하면서 그 상품/서비스를 성장시키는 것
 
@@ -34,13 +34,13 @@ firebase에서 가장 멋진 기능은 앱에 대한 수많은 정보를 관리�
 
 # Firebase Development
 firebase에서 개발 도구로 제공하는(개발 카테고리에 있는ㅋ) 도구들은 다음과 같다.
-![fb메인화면]()
+![fb메인화면](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb메인화면.png?raw=true)
 
 ## Firebase for Angular
 앵귤러 프로그램에 firebase를 적용해 사용법을 익혀보자.
 실습은 [이곳](https://codelabs.developers.google.com/codelabs/firebase-cloud-functions-angular/#1)을 참고로 진행한다.
 
-1. 실습 코드를 다운 받자.
+###1. 실습 코드를 다운 받자.
 ```bash
 git clone https://github.com/firebase/friendlychat-web
 ```
@@ -53,14 +53,14 @@ cd cloud-functions-angular-start
 
 다음, cloud-functions-angular-start 폴더를 사용하는 IDE로 열어 작업 준비를 마친다.
 
-2. 웹 앱에 Firebase 추가
-![fb메인화면]()
+###2. 웹 앱에 Firebase 추가
+![fb메인화면](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb메인화면.png?raw=true)
 이곳에서 웹 앱에 Firebase 추가 버튼을 누른다.
 
 - 프로젝트가 없다면 생성 후 진행을 한다.
-![fb프로젝트 추가]()
+![fb프로젝트 추가](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb프로젝트%20추가.png?raw=true)
 
-![fb인증코드]()
+![fb인증코드](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb인증코드.png?raw=true)
 Javascript 코드가 담긴 창이 나타나는데 Angular에선 저부분만 복사를 한다.
 
 다음, 복사한 코드를 다음의 파일에 붙여넣기 한다.
@@ -71,9 +71,9 @@ Javascript 코드가 담긴 창이 나타나는데 Angular에선 저부분만 �
 - src/firebase-messaging-sw.js
 
 다음, 구글 로그인을 허용해야 하는데, firebase 웹콘솔에서 Authentication > 로그인 방법 에서 아래의 작업을 진행한다.
-![fb구글계정로그인승인]()
+![fb구글계정로그인승인](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb구글계정로그인승인.png?raw=true)
 
-3. 모듈 설치
+###3. 모듈 설치
 
 - 모듈 설치 전에, 위의 git에서 받은 샘플은 버전이 모듈 버전들이 낮기 때문에 package.json을 변경해 줘야한다.
 ```bash
@@ -141,7 +141,7 @@ firebase login
 firebase use --add
 ```
 
-4. deploy
+###4. deploy
 앵귤러를 firebase에 배포합니다.
 먼저, 앱을 빌드해줍니다.
 ```bash
@@ -175,7 +175,7 @@ Hosting URL: https://areu-firebase-test.firebaseapp.com
 ```
 Hosting URL로 접속해 보자!
 
-5. Cloud functions
+###5. Cloud functions
 Cloud functions를 통해 기본적인 api를 구성해보자.
 ```bash
 cd functions
@@ -224,26 +224,26 @@ firebase deploy --only functions
 ```
 배포가 완료 됐다면 Hosting URL로 접속해 보자.
 
-![fb인증시도]()
+![fb인증시도](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb인증시도.png?raw=true)
 인증을 수행하고
 
-![fb인증후에챗]()
+![fb인증후에챗](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb인증후에챗.png?raw=true)
 welcome메시지와 채팅을 확인할 수 있다.
 
-6. 결과
+###6. 결과
 우리는 앞선 실습으로 firebase의 개발적인 부분에 대해 다뤄봤다.
 firebase서버를 구성하고, 웹앱을 생성해 계정을 연동, 그리고 Function을 구성해 배포까지!
 firebase는 위의 행위를 통해 사용자가 아주 쉽게 Back-end를 다룰 수 있게 구성했다.
 
 아, 물론 우리가 수행한 데이터 역시 쉽게 확인이 가능하다.
 
-![fb배포]()
+![fb배포](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb배포.png?raw=true)
 우리가 배포한 웹앱에 대한 정보이다.
 
-![fb인증]()
+![fb인증](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb인증.png?raw=true)
 다음, 우리가 인증을 시도한 계정에 대한 정보이다.
 
-![fbRealTime]()
+![fbRealTime](https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fbRealTime.png?raw=true)
 인증 후 수행했던 채팅에 대한 이력이다.
 
 위의 정보는 firebase 콘솔에서 모두 확인이 가능하다. 뿐만 아니라 firebase는 gcp의 인스턴스를 구성해 사용하는 것임으로 gcp 콘솔에서도 확인이 가능하다.
