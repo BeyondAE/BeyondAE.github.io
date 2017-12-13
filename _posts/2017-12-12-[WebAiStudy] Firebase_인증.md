@@ -66,6 +66,7 @@ Javascript 코드가 담긴 창이 나타나는데 Angular에선 저부분만 �
 다음, 복사한 코드를 다음의 파일에 붙여넣기 한다.
 - src/environments/environment.prod.ts
 - src/environments/environment.ts
+! 붙여넣기 후에 value를 ""에서 ''로 변경해줘야 한다.
 
 다음, messageingSenderId의 값을 복사해, 다음의 파일에 존재하는 messageingSenderId의 값으로 붙여넣기 한다.
 - src/firebase-messaging-sw.js
