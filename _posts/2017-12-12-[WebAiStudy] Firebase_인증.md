@@ -256,3 +256,8 @@ firebase는 위의 행위를 통해 사용자가 아주 쉽게 Back-end를 다�
 - [구글 firebase는 무엇인가? 제공하는 기능은?](http://hanburn.tistory.com/169)
 - [Firebase를 실제 모바일 백엔드로 사용하면 일어날 수 있는 일들](https://academy.realm.io/kr/posts/firebase-as-a-real-mobile-backend/)
 - [요즘 유행하는 ‘그로스 해킹(Growth Hacking)’이란 무엇인가?](https://alleciel.com/2015/04/29/dentsu-growth-hacking-1/)
+- [Cloud Function](https://firebase.google.com/docs/functions/use-cases?hl=ko)
+- [개발자들이 말하는 AWS 기반 ‘서버 없는 아키텍처’](https://aws.amazon.com/ko/blogs/korea/serverless-architecture-by-korean-developers/)
+- [AngularFire2](https://coursetro.com/posts/code/94/Use-Angular-with-Google%27s-Cloud-Firestore---Tutorial)
+- [AngularFire2 git](https://github.com/angular/angularfire2/blob/master/docs/firestore/collections.md)
+- [Angular CLI를 사용한 프로젝트의 생성, 구성요소 추가와 빌드](https://coursetro.com/posts/code/94/Use-Angular-with-Google%27s-Cloud-Firestore---Tutorial)
