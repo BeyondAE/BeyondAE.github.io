@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>Firebase Authentication</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/mac/.atom/packages/markdown-preview-enhanced/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none} 
+       
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <h1 class="mume-header" id="whats-the-firebase">What's the Firebase?</h1>
+
+<blockquote>
+<p>앱 개발에 필요한 도구와 인프라를 제공하기 위해서 구글에서 만든 클라우드 플랫폼</p>
+</blockquote>
+<h2 class="mume-header" id="&#xC4F0;&#xBA74;-&#xC5B4;&#xB5BB;&#xAC8C;-&#xB418;&#xB098;">쓰면 어떻게 되나?</h2>
+
+<p><img src="https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb%EC%93%B0%EB%A9%B4.png?raw=true" alt="fb&#xC4F0;&#xBA74;"><br>
+엄청난 비용이 필요한 부분을 뚝딱 해결할 수 있게 한다.<br>
+그림에서 보듯이 클라이언트가 모든 것을 해버린다.</p>
+<h2 class="mume-header" id="&#xADF8;&#xB798;-&#xBB58;-&#xC9C0;&#xC6D0;&#xD558;&#xAE38;&#xB798;">그래, 뭘 지원하길래?</h2>
+
+<p>궁금하면 로그인해서 한 번 구경해 보자!</p>
+<blockquote>
+<p><a href="https://console.firebase.google.com">https://console.firebase.google.com</a></p>
+</blockquote>
+<p>구성된 도구들은 대충 이렇다.<br>
+<img src="https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb%EB%8F%84%EA%B5%AC%EB%93%A4.png?raw=true" alt="fb&#xB3C4;&#xAD6C;&#xB4E4;"><br>
+개발과 그로쓰해킹, 수입에 대해서 크게 나눠 구분이 가능하다.</p>
+<blockquote>
+<ul>
+<li>Growth hacking : 개발적인 면에서 고민하고, 상품/서비스의 개선사항을 모니터링하면서 그 상품/서비스를 성장시키는 것</li>
+</ul>
+</blockquote>
+<h2 class="mume-header" id="firebase-analytic">firebase analytic</h2>
+
+<p>firebase에서 가장 멋진 기능은 앱에 대한 수많은 정보를 관리할 수 있다는 것이다.</p>
+<blockquote>
+<p>사용자당 평균 수익(ARPU), 활성 사용자 수, 사용자 유지 보고서, 이벤트 수, 기기 유형, 앱 버전, OS 버전 등의 사용자 속성 등등등!!!</p>
+</blockquote>
+<p>더 많은 정보는 <a href="https://developers-kr.googleblog.com/2016/06/introducing-firebase-analytics.html">이곳</a>을 참고하자.</p>
+<h1 class="mume-header" id="firebase-development">Firebase Development</h1>
+
+<p>firebase에서 개발 도구로 제공하는(개발 카테고리에 있는ㅋ) 도구들은 다음과 같다.<br>
+<img src="https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4.png?raw=true" alt="fb&#xBA54;&#xC778;&#xD654;&#xBA74;"></p>
+<h2 class="mume-header" id="firebase-for-angular">Firebase for Angular</h2>
+
+<p>앵귤러 프로그램에 firebase를 적용해 사용법을 익혀보자.<br>
+실습은 <a href="https://codelabs.developers.google.com/codelabs/firebase-cloud-functions-angular/#1">이곳</a>을 참고로 진행한다.</p>
+<h3 class="mume-header" id="1-&#xC2E4;&#xC2B5;-&#xCF54;&#xB4DC;&#xB97C;-&#xB2E4;&#xC6B4;-&#xBC1B;&#xC790;">1. 실습 코드를 다운 받자.</h3>
+
+<pre class="language-bash"><span class="token function">git</span> clone https://github.com/firebase/friendlychat-web
+</pre>
+<p>위의 코드를 적당한 폴더에서 실행한다.</p>
+<pre class="language-bash"><span class="token function">cd</span> cloud-functions-angular-start
+</pre>
+<p>실습 폴더로 이동한다.</p>
+<p>다음, cloud-functions-angular-start 폴더를 사용하는 IDE로 열어 작업 준비를 마친다.</p>
+<h3 class="mume-header" id="2-&#xC6F9;-&#xC571;&#xC5D0;-firebase-&#xCD94;&#xAC00;">2. 웹 앱에 Firebase 추가</h3>
+
+<p><img src="https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4.png?raw=true" alt="fb&#xBA54;&#xC778;&#xD654;&#xBA74;"><br>
+이곳에서 웹 앱에 Firebase 추가 버튼을 누른다.</p>
+<ul>
+<li>프로젝트가 없다면 생성 후 진행을 한다.<br>
+<img src="https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%B6%94%EA%B0%80.png?raw=true" alt="fb&#x1111;&#x1173;&#x1105;&#x1169;&#x110C;&#x1166;&#x11A8;&#x1110;&#x1173; &#x110E;&#x116E;&#xAC00;"></li>
+</ul>
+<p><img src="https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb%EC%9D%B8%EC%A6%9D%EC%BD%94%EB%93%9C.png?raw=true" alt="fb&#x110B;&#x1175;&#x11AB;&#x110C;&#x1173;&#x11BC;&#x110F;&#x1169;&#x1103;&#x1173;"><br>
+Javascript 코드가 담긴 창이 나타나는데 Angular에선 저부분만 복사를 한다.</p>
+<p>다음, 복사한 코드를 다음의 파일에 붙여넣기 한다.</p>
+<ul>
+<li>src/environments/environment.prod.ts</li>
+<li>src/environments/environment.ts<br>
+! 붙여넣기 후에 value를 &quot;&quot;에서 ''로 변경해줘야 한다.</li>
+</ul>
+<p>다음, messageingSenderId의 값을 복사해, 다음의 파일에 존재하는 messageingSenderId의 값으로 붙여넣기 한다.</p>
+<ul>
+<li>src/firebase-messaging-sw.js</li>
+</ul>
+<p>다음, 구글 로그인을 허용해야 하는데, firebase 웹콘솔에서 Authentication &gt; 로그인 방법 에서 아래의 작업을 진행한다.<br>
+<img src="https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb%EA%B5%AC%EA%B8%80%EA%B3%84%EC%A0%95%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%8A%B9%EC%9D%B8.png?raw=true" alt="fb&#x1100;&#x116E;&#x1100;&#x1173;&#x11AF;&#x1100;&#x1168;&#x110C;&#x1165;&#x11BC;&#x1105;&#x1169;&#x1100;&#x1173;&#x110B;&#x1175;&#x11AB;&#x1109;&#x1173;&#x11BC;&#x110B;&#x1175;&#x11AB;"></p>
+<h3 class="mume-header" id="3-&#xBAA8;&#xB4C8;-&#xC124;&#xCE58;">3. 모듈 설치</h3>
+
+<ul>
+<li>모듈 설치 전에, 위의 git에서 받은 샘플은 버전이 모듈 버전들이 낮기 때문에 package.json을 변경해 줘야한다.</li>
+</ul>
+<pre class="language-bash"><span class="token string">"dependencies"</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"@angular/animations"</span><span class="token keyword">:</span> <span class="token string">"^5.0.0"</span>,
+    <span class="token string">"@angular/cdk"</span><span class="token keyword">:</span> <span class="token string">"~2.0.0-beta.12"</span>,
+    <span class="token string">"@angular/common"</span><span class="token keyword">:</span> <span class="token string">"^5.0.0"</span>,
+    <span class="token string">"@angular/compiler"</span><span class="token keyword">:</span> <span class="token string">"^5.0.0"</span>,
+    <span class="token string">"@angular/core"</span><span class="token keyword">:</span> <span class="token string">"^5.0.0"</span>,
+    <span class="token string">"@angular/forms"</span><span class="token keyword">:</span> <span class="token string">"^5.0.0"</span>,
+    <span class="token string">"@angular/http"</span><span class="token keyword">:</span> <span class="token string">"^5.0.0"</span>,
+    <span class="token string">"@angular/material"</span><span class="token keyword">:</span> <span class="token string">"~2.0.0-beta.12"</span>,
+    <span class="token string">"@angular/platform-browser"</span><span class="token keyword">:</span> <span class="token string">"^5.0.0"</span>,
+    <span class="token string">"@angular/platform-browser-dynamic"</span><span class="token keyword">:</span> <span class="token string">"^5.0.0"</span>,
+    <span class="token string">"@angular/router"</span><span class="token keyword">:</span> <span class="token string">"^5.0.0"</span>,
+    <span class="token string">"@google-cloud/storage"</span><span class="token keyword">:</span> <span class="token string">"^1.5.1"</span>,
+    <span class="token string">"@google-cloud/vision"</span><span class="token keyword">:</span> <span class="token string">"^0.13.0"</span>,
+    <span class="token string">"angularfire2"</span><span class="token keyword">:</span> <span class="token string">"~4.0.0-rc.2"</span>,
+    <span class="token string">"child-process-promise"</span><span class="token keyword">:</span> <span class="token string">"^2.2.1"</span>,
+    <span class="token string">"core-js"</span><span class="token keyword">:</span> <span class="token string">"^2.4.1"</span>,
+    <span class="token string">"firebase"</span><span class="token keyword">:</span> <span class="token string">"~4.4.0"</span>,
+    <span class="token string">"rxjs"</span><span class="token keyword">:</span> <span class="token string">"^5.5.2"</span>,
+    <span class="token string">"zone.js"</span><span class="token keyword">:</span> <span class="token string">"^0.8.14"</span>
+  <span class="token punctuation">}</span>,
+  <span class="token string">"devDependencies"</span><span class="token keyword">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"@angular/cli"</span><span class="token keyword">:</span> <span class="token string">"^1.6.0"</span>,
+    <span class="token string">"@angular/compiler-cli"</span><span class="token keyword">:</span> <span class="token string">"^5.0.0"</span>,
+    <span class="token string">"@angular/language-service"</span><span class="token keyword">:</span> <span class="token string">"^5.0.0"</span>,
+    <span class="token string">"@types/jasmine"</span><span class="token keyword">:</span> <span class="token string">"~2.5.53"</span>,
+    <span class="token string">"@types/jasminewd2"</span><span class="token keyword">:</span> <span class="token string">"~2.0.2"</span>,
+    <span class="token string">"@types/node"</span><span class="token keyword">:</span> <span class="token string">"~6.0.60"</span>,
+    <span class="token string">"codelyzer"</span><span class="token keyword">:</span> <span class="token string">"^4.0.1"</span>,
+    <span class="token string">"jasmine-core"</span><span class="token keyword">:</span> <span class="token string">"~2.6.2"</span>,
+    <span class="token string">"jasmine-spec-reporter"</span><span class="token keyword">:</span> <span class="token string">"~4.1.0"</span>,
+    <span class="token string">"karma"</span><span class="token keyword">:</span> <span class="token string">"~1.7.0"</span>,
+    <span class="token string">"karma-chrome-launcher"</span><span class="token keyword">:</span> <span class="token string">"~2.1.1"</span>,
+    <span class="token string">"karma-cli"</span><span class="token keyword">:</span> <span class="token string">"~1.0.1"</span>,
+    <span class="token string">"karma-coverage-istanbul-reporter"</span><span class="token keyword">:</span> <span class="token string">"^1.2.1"</span>,
+    <span class="token string">"karma-jasmine"</span><span class="token keyword">:</span> <span class="token string">"~1.1.0"</span>,
+    <span class="token string">"karma-jasmine-html-reporter"</span><span class="token keyword">:</span> <span class="token string">"^0.2.2"</span>,
+    <span class="token string">"protractor"</span><span class="token keyword">:</span> <span class="token string">"~5.1.2"</span>,
+    <span class="token string">"ts-node"</span><span class="token keyword">:</span> <span class="token string">"~3.2.0"</span>,
+    <span class="token string">"tslint"</span><span class="token keyword">:</span> <span class="token string">"~5.7.0"</span>,
+    <span class="token string">"typescript"</span><span class="token keyword">:</span> <span class="token string">"~2.4.2"</span>
+  <span class="token punctuation">}</span>
+</pre>
+<p>위의 코드를 복사해 package.json의 dependencies를 수정해 준다.</p>
+<pre class="language-bash"><span class="token function">npm</span> <span class="token function">install</span>
+</pre>
+<p>다음, cli도 설치해줍니다.</p>
+<pre class="language-bash"><span class="token function">npm</span> -g <span class="token function">install</span> firebase-tools
+</pre>
+<p>firebase에 로그인 해보죠.</p>
+<pre class="language-bash">firebase login
+</pre>
+<p>다음, 프로젝트를 추가합니다.</p>
+<pre class="language-bash">firebase use --add
+</pre>
+<h3 class="mume-header" id="4-deploy">4. deploy</h3>
+
+<p>앵귤러를 firebase에 배포합니다.<br>
+먼저, 앱을 빌드해줍니다.</p>
+<pre class="language-bash">ng build --prod --aot
+</pre>
+<p>다음, 배포!</p>
+<pre class="language-build">firebase deploy --except functions
+</pre>
+<p>functions는 일단 제외하겠습니다.</p>
+<p>배포가 완료되면 다음과 같은 결과를 볼 수 있다.</p>
+<pre class="language-bash">i  deploying database, storage, hosting
+i  database: checking rules syntax<span class="token punctuation">..</span>.
+✔  database: rules syntax <span class="token keyword">for</span> database areu-firebase-test is valid
+i  storage: checking storage.rules <span class="token keyword">for</span> compilation errors<span class="token punctuation">..</span>.
+✔  storage: rules <span class="token function">file</span> storage.rules compiled successfully
+i  storage: uploading rules storage.rules<span class="token punctuation">..</span>.
+i  hosting: preparing dist directory <span class="token keyword">for</span> upload<span class="token punctuation">..</span>.
+✔  hosting: 17 files uploaded successfully
+i  database: releasing rules<span class="token punctuation">..</span>.
+✔  database: rules <span class="token keyword">for</span> database areu-firebase-test released successfully
+✔  storage: released rules storage.rules to firebase.storage/areu-firebase-test.appspot.com
+
+✔  Deploy complete<span class="token operator">!</span>
+
+Project Console: https://console.firebase.google.com/project/areu-firebase-test/overview
+Hosting URL: https://areu-firebase-test.firebaseapp.com
+</pre>
+<p>Hosting URL로 접속해 보자!</p>
+<h3 class="mume-header" id="5-cloud-functions">5. Cloud functions</h3>
+
+<p>Cloud functions를 통해 기본적인 api를 구성해보자.</p>
+<pre class="language-bash"><span class="token function">cd</span> functions
+<span class="token function">ls</span>
+<span class="token function">npm</span> <span class="token function">install</span>
+</pre>
+<p>다음, index.js 파일을 열어 다음의 코드를 복사하자.</p>
+<pre class="language-Javascript"><span class="token comment" spellcheck="true">/**
+ * Copyright 2017 Google Inc. All Rights Reserved.
+ * ...
+ */</span>
+
+<span class="token comment" spellcheck="true">// Import the Firebase SDK for Google Cloud Functions.</span>
+<span class="token keyword">const</span> functions <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'firebase-functions'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Import and initialize the Firebase Admin SDK.</span>
+<span class="token keyword">const</span> admin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'firebase-admin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+admin<span class="token punctuation">.</span><span class="token function">initializeApp</span><span class="token punctuation">(</span>functions<span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>firebase<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// TODO(DEVELOPER): Write the addWelcomeMessage Function here.</span>
+<span class="token comment" spellcheck="true">// Adds a message that welcomes new users into the chat.</span>
+exports<span class="token punctuation">.</span>addWelcomeMessages <span class="token operator">=</span> functions<span class="token punctuation">.</span>auth<span class="token punctuation">.</span><span class="token function">user</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> user <span class="token operator">=</span> event<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'A new user signed in for the first time.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> fullName <span class="token operator">=</span> user<span class="token punctuation">.</span>displayName <span class="token operator">||</span> <span class="token string">'Anonymous'</span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// Saves the new welcome message into the database</span>
+  <span class="token comment" spellcheck="true">// which then displays it in the FriendlyChat clients.</span>
+  <span class="token keyword">return</span> admin<span class="token punctuation">.</span><span class="token function">database</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'messages'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'Firebase Bot'</span><span class="token punctuation">,</span>
+    photoUrl<span class="token punctuation">:</span> <span class="token string">'/assets/images/firebase-logo.png'</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// Firebase logo</span>
+    text<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>fullName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> signed in for the first time! Welcome!`</span></span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// TODO(DEVELOPER): Write the blurImages Function here.</span>
+
+<span class="token comment" spellcheck="true">// TODO(DEVELOPER): Write the sendNotification Function here.</span>
+
+<span class="token comment" spellcheck="true">// (OPTIONAL) TODO(DEVELOPER): Write the annotateMessages Function here.</span>
+</pre>
+<p>저장 후 Cloud functions를 배포한다.</p>
+<pre class="language-bash">firebase deploy --only functions
+</pre>
+<p>배포가 완료 됐다면 Hosting URL로 접속해 보자.</p>
+<p><img src="https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb%EC%9D%B8%EC%A6%9D%EC%8B%9C%EB%8F%84.png?raw=true" alt="fb&#xC778;&#xC99D;&#xC2DC;&#xB3C4;"><br>
+인증을 수행하고</p>
+<p><img src="https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb%EC%9D%B8%EC%A6%9D%ED%9B%84%EC%97%90%EC%B1%97.png?raw=true" alt="fb&#xC778;&#xC99D;&#xD6C4;&#xC5D0;&#xCC57;"><br>
+welcome메시지와 채팅을 확인할 수 있다.</p>
+<h3 class="mume-header" id="6-&#xACB0;&#xACFC;">6. 결과</h3>
+
+<p>우리는 앞선 실습으로 firebase의 개발적인 부분에 대해 다뤄봤다.<br>
+firebase서버를 구성하고, 웹앱을 생성해 계정을 연동, 그리고 Function을 구성해 배포까지!<br>
+firebase는 위의 행위를 통해 사용자가 아주 쉽게 Back-end를 다룰 수 있게 구성했다.</p>
+<p>아, 물론 우리가 수행한 데이터 역시 쉽게 확인이 가능하다.</p>
+<p><img src="https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb%EB%B0%B0%ED%8F%AC.png?raw=true" alt="fb&#xBC30;&#xD3EC;"><br>
+우리가 배포한 웹앱에 대한 정보이다.</p>
+<p><img src="https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fb%EC%9D%B8%EC%A6%9D.png?raw=true" alt="fb&#xC778;&#xC99D;"><br>
+다음, 우리가 인증을 시도한 계정에 대한 정보이다.</p>
+<p><img src="https://github.com/beyondat/beyondat.github.io/blob/master/images/2017-12/fbRealTime.png?raw=true" alt="fbRealTime"><br>
+인증 후 수행했던 채팅에 대한 이력이다.</p>
+<p>위의 정보는 firebase 콘솔에서 모두 확인이 가능하다. 뿐만 아니라 firebase는 gcp의 인스턴스를 구성해 사용하는 것임으로 gcp 콘솔에서도 확인이 가능하다.</p>
+<hr>
+<h1 class="mume-header" id="&#xCC38;&#xC870;">참조</h1>
+
+<ul>
+<li><a href="https://firebase.google.com/">Firebase</a></li>
+<li><a href="http://hanburn.tistory.com/169">구글 firebase는 무엇인가? 제공하는 기능은?</a></li>
+<li><a href="https://academy.realm.io/kr/posts/firebase-as-a-real-mobile-backend/">Firebase를 실제 모바일 백엔드로 사용하면 일어날 수 있는 일들</a></li>
+<li><a href="https://alleciel.com/2015/04/29/dentsu-growth-hacking-1/">요즘 유행하는 ‘그로스 해킹(Growth Hacking)’이란 무엇인가?</a></li>
+</ul>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#whats-the-firebase">What's the Firebase?</a>
+<ul>
+<li><a href="#%EC%93%B0%EB%A9%B4-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%90%98%EB%82%98">쓰면 어떻게 되나?</a></li>
+<li><a href="#%EA%B7%B8%EB%9E%98-%EB%AD%98-%EC%A7%80%EC%9B%90%ED%95%98%EA%B8%B8%EB%9E%98">그래, 뭘 지원하길래?</a></li>
+<li><a href="#firebase-analytic">firebase analytic</a></li>
+</ul>
+</li>
+<li><a href="#firebase-development">Firebase Development</a>
+<ul>
+<li><a href="#firebase-for-angular">Firebase for Angular</a>
+<ul>
+<li><a href="#1-%EC%8B%A4%EC%8A%B5-%EC%BD%94%EB%93%9C%EB%A5%BC-%EB%8B%A4%EC%9A%B4-%EB%B0%9B%EC%9E%90">1. 실습 코드를 다운 받자.</a></li>
+<li><a href="#2-%EC%9B%B9-%EC%95%B1%EC%97%90-firebase-%EC%B6%94%EA%B0%80">2. 웹 앱에 Firebase 추가</a></li>
+<li><a href="#3-%EB%AA%A8%EB%93%88-%EC%84%A4%EC%B9%98">3. 모듈 설치</a></li>
+<li><a href="#4-deploy">4. deploy</a></li>
+<li><a href="#5-cloud-functions">5. Cloud functions</a></li>
+<li><a href="#6-%EA%B2%B0%EA%B3%BC">6. 결과</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%EC%B0%B8%EC%A1%B0">참조</a></li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">≡</a>
+    </body>
+    
+    
+    
+    <script>
+(function bindTaskListEvent() {
+  var taskListItemCheckboxes = document.body.getElementsByClassName('task-list-item-checkbox')
+  for (var i = 0; i < taskListItemCheckboxes.length; i++) {
+    var checkbox = taskListItemCheckboxes[i]
+    var li = checkbox.parentElement
+    if (li.tagName !== 'LI') li = li.parentElement
+    if (li.tagName === 'LI') {
+      li.classList.add('task-list-item')
+    }
+  }
+}())    
+</script>
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  </html>
